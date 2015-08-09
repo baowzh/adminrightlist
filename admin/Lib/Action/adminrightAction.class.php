@@ -109,7 +109,8 @@ class adminrightAction extends CommonAction {
 		// 有下级权利清但择不能删除
 		$childlist=$Adminrightk->where("parentid='".$id."'")->select();
 		if(count($childlist)>0){
-			
+			$this->error ( '删除失败.' . '此项目存在下级项目,先删除下级项目再删除此项目。', U ( "lists" ) );
+		 return ;
 		}
 		$Adminright->where ( "id=$id" )->delete ();
 		$this->redirect ( "show_list" );

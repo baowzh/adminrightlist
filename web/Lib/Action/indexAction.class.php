@@ -85,8 +85,8 @@ class indexAction extends CommonAction {
 				'IS NULL' 
 		);
 		$count = $Adminright->where ( $where )->count ();
-		$page = $this->pagebar ( $count);
-		$adminrights = $Adminright->page($page)->where ( $where )->field ( $Adminright->getTableName () . ".*, (select count(1) from " . $Adminright->getTableName () . " a where a.parentid=" . $Adminright->getTableName () . ".id ) as haschild,(select names from " . $Depart->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".departid ) as departname " )->order ( 'id asc' )->select ();
+		$page = $this->pagebar ( $count );
+		$adminrights = $Adminright->page ( $page )->where ( $where )->field ( $Adminright->getTableName () . ".*, (select count(1) from " . $Adminright->getTableName () . " a where a.parentid=" . $Adminright->getTableName () . ".id ) as haschild,(select names from " . $Depart->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".departid ) as departname " )->order ( 'id asc' )->select ();
 		$returnarray = array ();
 		foreach ( $adminrights as $key => $value ) {
 			// 获取下级

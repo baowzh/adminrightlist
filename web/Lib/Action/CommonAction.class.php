@@ -1,7 +1,7 @@
 <?php
 
 import('@.ORG.Http');
-
+import ( "ORG.Util.Page" );
 class CommonAction extends Action {
 
 	protected $authentic = 1;
@@ -135,9 +135,9 @@ class CommonAction extends Action {
 	}
 
 	public function getPageSize() {
-		$pagesize = isset($_COOKIE["pagesize"]) ? intval($_COOKIE["pagesize"]) : 15;
+		$pagesize = isset($_COOKIE["pagesize"]) ? intval($_COOKIE["pagesize"]) : 25;
 		define("PAGESIZE", $pagesize);
-		$sizecount = array(5, 10, 12, 15, 20, 30, 50, 100);
+		$sizecount = array(5, 10, 12, 15, 25, 30, 50, 100);
 
 		$pagestr = " 每页显示<select onchange=\"location.href='" . U('Common/setPageSize') . "/pagesize/'+this.value\">";
 		foreach ($sizecount as $v) {
@@ -153,9 +153,9 @@ class CommonAction extends Action {
 
 	public function setPageSize() {
 		$url = $_SERVER["HTTP_REFERER"];
-		$pagesize = isset($_GET["pagesize"]) ? intval($_GET["pagesize"]) : 15;
-		$sizecount = array(5, 10, 12, 15, 20, 30, 50, 100);
-		$pagesize = in_array($pagesize, $sizecount) ? $pagesize : 15;
+		$pagesize = isset($_GET["pagesize"]) ? intval($_GET["pagesize"]) : 25;
+		$sizecount = array(5, 10, 12, 15, 25, 30, 50, 100);
+		$pagesize = in_array($pagesize, $sizecount) ? $pagesize : 25;
 		setcookie("pagesize", $pagesize, time() + 86400 * 365, "/");
 		header("Location: $url");
 	}
