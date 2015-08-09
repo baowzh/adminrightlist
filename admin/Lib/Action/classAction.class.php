@@ -24,7 +24,7 @@ class classAction extends CommonAction {
 		}
 		$count = $Classi->where ( $where )->count ();
 		$page = $this->pagebar ( $count );
-		$list = $Classi->page ( $page )->where ( $where )->order ( 'id desc' )->select ();
+		$list = $Classi->page ( $page )->where ( $where )->order ( 'id ' )->select ();
 		$this->assign ( 'list', $list );
 		$this->display ();
 	}

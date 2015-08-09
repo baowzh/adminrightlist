@@ -105,6 +105,12 @@ class adminrightAction extends CommonAction {
 	public function del() {
 		$id = $_GET ['id'];
 		$Adminright = M ( 'Adminright' );
+		$Adminrightk = M ( 'Adminright' );
+		// 有下级权利清但择不能删除
+		$childlist=$Adminrightk->where("parentid='".$id."'")->select();
+		if(count($childlist)>0){
+			
+		}
 		$Adminright->where ( "id=$id" )->delete ();
 		$this->redirect ( "show_list" );
 	}
