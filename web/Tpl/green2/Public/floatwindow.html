@@ -1,0 +1,89 @@
+﻿<div class="clear"></div>
+<div id="fixedService" class="rides-cs">
+	<div class="floatL">
+		<a style="display: none;" id="aFloatTools_Show" class="btnOpen"
+			title="查看在线客服" href="javascript:void(0);">展开</a> <a
+			style="display: block;" id="aFloatTools_Hide" class="btnCtn"
+			title="关闭在线客服" href="javascript:void(0);">收缩</a>
+	</div>
+	<div id="divFloatToolsView" class="floatR" style="display: block;">
+		<div class="cn">
+			<ul>
+				<div id="BDBridgeFixedWrap"
+					style="text-align: left; display: block; width: 170px; height: 0px; position: relative;">
+					<iframe id="BDBridgeIconIframe" src="about:blank" frameborder="0"
+						marginheight="0" marginwidth="0"
+						style="display: none; width: 170px; height: 0px;"></iframe>
+					<div id="IconContainer" style="width: 170px; height: 0px;">
+						<div id="bridgebottom"
+							style="position: relative; width: 170px; margin-left: 0px; left: 0px;">
+							<div class="bdbridge-icon-left"
+								style="position: absolute; zoom: 1; right: 0px; bottom: 0px;">
+								<div id="bdbridge-left-close" style="cursor: pointer;"
+									class=" bdbridge-right-img"></div>
+							</div>
+
+							<div style="clear: both; font-size: 0; line-height: 0;"></div>
+						</div>
+					</div>
+				</div>
+			</ul>
+			<h3 class="titZx titQq">在线客服</h3>
+			<ul class="qq clearfix">
+				<li><a target="_blank"
+					href="tencent://message/?uin=3209515677&Site=http://www.isoseo.cn&Menu=yes"><img
+						border="0" src="http://wpa.qq.com/pa?p=2:3209515667:52"
+						alt="点击这里给我发消息" title="点击这里给我发消息" /><span>小韩</span></a></li>
+				<li><a target="_blank"
+					href="http://wpa.qq.com/msgrd?v=3&uin=3285390396&site=qq&menu=yes"><img
+						border="0" src="http://wpa.qq.com/pa?p=2:3285390396:52"
+						alt="点击这里给我发消息" title="点击这里给我发消息" /><span>小魏</span></a></li>
+				<li><a target="_blank"
+					href="tencent://message/?uin=3224725784&Site=http://www.isoseo.cn&Menu=yes"><img
+						border="0" src="http://wpa.qq.com/pa?p=2:3224735784:52"
+						alt="点击这里给我发消息" title="点击这里给我发消息" /><span>小陈</span></a></li>
+				<li><a target="_blank"
+					href="tencent://message/?uin=3285472689&Site=http://www.isoseo.cn&Menu=yes"><img
+						border="0" src="http://wpa.qq.com/pa?p=2:3285472689:52"
+						alt="点击这里给我发消息" title="点击这里给我发消息" /><span>小张</span></a></li>
+				<li><a target="_blank"
+					href="tencent://message/?uin=2879375647&Site=http://www.isoseo.cn&Menu=yes"><img
+						border="0" src="http://wpa.qq.com/pa?p=2:2879375647:52"
+						alt="点击这里给我发消息" title="点击这里给我发消息" /><span>小高</span></a></li>
+			</ul>
+			<h3 class="titZx">咨询热线</h3>
+			<ul>
+				<li><span>4001-888-332</span></li>
+			</ul>
+			<img src="__ROOT__/style/images/qrcode.bmp" style="width:100%;"/>
+		</div>
+	</div>
+</div>
+<!-- <div class="qrcode-cs"> -->
+<!--  <img src="__ROOT__/style/images/qrcode.bmp" style="width:140px;"/> -->
+<!-- </div> -->
+<div id="izl_rmenu" class="izl-rmenu">
+	<div class="btn btn-top" style="display: block;"></div>
+</div>
+<script type="text/javascript">
+ $(document).ready(function() {
+    	$('#divFloatToolsView').hide();
+    	$('#aFloatTools_Show').show();
+		$('#aFloatTools_Hide').hide();	
+    	$("#aFloatTools_Show").click(function(){
+    			$('#divFloatToolsView').animate({width:'show',opacity:'show'},500,function(){$('#divFloatToolsView').show();});
+    			$('#aFloatTools_Show').hide();
+    			$('#aFloatTools_Hide').show();				
+    	});
+    	$("#aFloatTools_Hide").click(function(){
+    			$('#divFloatToolsView').animate({width:'hide', opacity:'hide'},500,function(){$('#divFloatToolsView').hide();});
+    			$('#aFloatTools_Show').show();
+    			$('#aFloatTools_Hide').hide();	
+    	});
+    	$(".btn-top").click(function(){
+			$("html, body").animate({
+				"scroll-top":0
+			},"fast");
+		});
+	});
+</script>

@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	var root = "__ROOT__", index = "__Index__";
+</script>
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="{:U('lists')}">部门列表</a> |
+		<a class="on" href="{:U('add')}">添加部门</a>
+	</ul>
+</div>
+<form action="{:U('add')}" name="form1"
+	 method="post"
+	onsubmit="return formcheck();">
+	<table border="0" cellspacing="0" cellpadding="0" class="table_form"
+		width="100%">
+		<tr>
+			<th><span class="red">*</span>部门名称：</th>
+			<td colspan="2"><input name="names" type="text" class="txt"
+				id="names"  datatype="*" nullmsg="请填写部门名称"
+				errmsg="请填写部门名称" sucmsg=" " /></td>
+		</tr>
+		<tr>
+			<th><span class="red">*</span>部门编码：</th>
+			<td colspan="2"><input name="code" type="text" class="txt"
+				id="code"  datatype="*" nullmsg="请填写部门编码"
+				errmsg="请填写部门编码" sucmsg=" " /></td>
+		</tr>
+		<tr>
+			<th><span class="red">*</span>备注：</th>
+			<td colspan="2"><textarea name="comm" cols="50" rows="8"
+					id="comm" datatype="*" nullmsg="请填备注" errmsg="请填写备注" sucmsg=" "
+					class="f_left"></textarea></td>
+		</tr>
+	</table>
+	<div id="btnbox" class="btn">
+		<INPUT TYPE="submit" value=" 保 存 " name="save" class="button">
+		<input name="rset" TYPE="reset" class="button" id="rset" value=" 重 置 ">
+	</div>
+</form>

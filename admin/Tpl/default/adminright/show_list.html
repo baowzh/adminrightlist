@@ -1,0 +1,132 @@
+<script type="text/javascript">
+	var root = "__ROOT__", index = "__Index__";
+</script>
+<link href="../Public/css/qingdan.css" type='text/css' rel='stylesheet' />
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery.treetable-ajax-persist.js"></script>
+<script type="text/javascript" src="../Public/js/setprojectinfo.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery.treetable-3.0.0.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/persist-min.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery-ui.min.js"></script>
+<link href="../Public/jquery-treetable/css/jquery-ui.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="../Public/jquery-treetable/css/jquery.treetable.css"
+	media="all" rel="stylesheet" type="text/css" />
+<link href="../Public/jquery-treetable/css/jquery.treetable.theme.css"
+	media="all" rel="stylesheet" type="text/css" />
+	
+<link rel="stylesheet"
+	href="__ROOT__/Public/Plugins/uploadify/uploadify.css" />
+<script type="text/javascript"
+	src="__ROOT__/Public/Plugins/uploadify/jquery.uploadify-3.1.min.js"></script>
+<script type="text/javascript"
+	src="__ROOT__/Public/Plugins/uploadify/jquery.jUpload.js"></script>
+
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a class="on" href="{:U('show_list')}">权利清单列表</a> |
+		<a href="{:U('add')}">添加权利清单</a>
+	</ul>
+</div>
+<form action="" method="get">
+	<table class="search_table" width="100%">
+		<tr>
+			<td class="search">清单名称: <input id="projectname" type="text"
+				class="input-text" name="projectname" value="{$projectname}" />
+				&nbsp; <input type="submit" name="submit" value="查询" class="button" />
+			</td>
+		</tr>
+	</table>
+</form>
+<form name="myform" id="myform" action="" method="post">
+	<div class="table-list">
+		<table cellspacing="0" cellpadding="0" width="100%" id="treetable">
+			<thead>
+				<tr>
+					<th><a href="javascript:void(0);" onclick="sel_all();">全选</a></th>
+					<th style="text-align: left;">权利清单名称</th>
+					<th>实时主体</th>
+					<th>类别</th>
+					<th>收费标准</th>
+					<th>收费依据</th>
+					<th>办理时限</th>
+					<th>承办机构</th>
+					<th>联系方式</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="vo">
+				<tr class="ulbc" id="tr_{$vo.id}" data-tt-id="{$vo.id}"  <neq name="vo.parentid" value="" >data-tt-parent-id="{$vo.parentid}" </neq> >
+					<td id="td_sel">
+					<input type="checkbox" class="sel"
+						id="sel_{$vo.id}" value="{$vo.id}" name="items_{$vo.id}" />
+						</td>
+					<td style="text-align: left;">
+					<neq name="vo.haschild" value="0" >
+					  <span class="folder ui-draggable">{$vo.projectname}</span>
+					</neq>
+					<eq name="vo.haschild" value="0" >
+					  <span class="file ui-draggable">{$vo.projectname}</span>
+					</eq>
+					</td>
+					<td style="text-align: left;">{$vo.departname}</td>
+					<td style="text-align: left;">{$vo.classname}</td>
+					<td style="text-align: left;">{$vo.standard}</td>
+					<td style="text-align: left;">{$vo.taxevidence}</td>
+					<td style="text-align: left;">{$vo.timelimit}</td>
+					<td style="text-align: left;">{$vo.holddepart}</td>
+					<td style="text-align: left;">{$vo.tel}</td>
+					<td><a
+						href="__URL__/edit/id/{$vo.id}">编辑</a>&nbsp;|&nbsp; <a
+						href="__URL__/del/id/{$vo.id}"
+						onclick="return atr_confirm(this.href)">删除</a></td>
+				</tr>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div class="btn">
+		<input type="submit" class="button" name="dosubmit" value="删除"
+			onclick="myform.action='{:U('deleteall')}';" /> 
+	</div>
+</form>
+<div class="page">{$page}</div>
+<script language="javascript">
+  function ajax_save(id){
+	  var url = "{:U(ajax_save)}?id="+id;
+	  var names = $('#names_'+id).val(); 
+	  var _sort = $('#sort_'+id).val();
+	  $.ajax({
+		  url: url,
+		  type: "POST",
+		  complete :function(){
+		  }, 
+		  dataType: 'json', 
+		  data: "names="+names+"&sort="+_sort,
+		  error: function() { alert('Ajax request error');},
+		  success: function(result){
+			  if(result==1){
+				  art.dialog.alert("保存成功");
+			  }
+		  }
+	  }); 
+  }
+  
+  function sel_all(){
+	  $('input.sel').each(function(index){
+		  if($(this).attr('checked')){
+			  $(this).removeAttr('checked');
+		  }else{
+			  $(this).attr('checked', 'checked');
+		  }
+	  });
+  };
+  
+  $(document).ready(function(){
+		$("#treetable").agikiTreeTable({persist: true, persistStoreName: "files"});
+	});
+</script>

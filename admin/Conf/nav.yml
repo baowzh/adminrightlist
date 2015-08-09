@@ -1,0 +1,216 @@
+-
+  names: 首页
+  id: 1
+  pid: 0
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: index/main
+-
+  names: 权利清单维护
+  id: 4
+  pid: 0
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: depart/lists
+-
+  names: 部门管理
+  id: 41
+  pid: 4
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: depart/lists
+-
+  names: 类别管理
+  id: 42
+  pid: 4
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: class/lists
+-
+  names: 权利清单
+  id: 43
+  pid: 4
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: adminright/show_list
+-
+  names: 内容管理
+  id: 3
+  pid: 0
+  sort: 0
+  enable: 1  
+  show: 1  
+  url: article/lists
+-
+  names: 广告管理
+  id: 8
+  pid: 0
+  sort: 0
+  enable: 1
+  show: 1  
+  url: advpic/area_lists
+-
+  names: 系统设置
+  id: 9
+  pid: 0
+  sort: 0
+  enable: 1
+  show: 1  
+  url: adminuser/lists 
+-
+  names: 工具箱
+  id: 10
+  pid: 0
+  sort: 0
+  enable: 1
+  show: 1  
+  url: bakup/index
+-
+  names: 会员列表
+  id: 11
+  pid: 2
+  sort: 0
+  enable: 1
+  show: 1  
+  url: user/show_list
+-
+  names: 短信管理
+  id: 12
+  pid: 2
+  sort: 0
+  enable: 1
+  show: 0  
+  url: user/sms_lists  
+-
+  names: 添加栏目
+  id: 13
+  pid: 3
+  sort: 0
+  enable: 1
+  show: 1  
+  url: section/classify_add
+-
+  names: 栏目列表
+  id: 14
+  pid: 3
+  sort: 0
+  enable: 1
+  show: 1  
+  url: section/classify_management
+-
+  names: 文章模型
+  id: 16
+  pid: 3
+  sort: 0
+  enable: 1
+  show: 1  
+  url: article/lists
+-
+  names: 单页模型
+  id: 17
+  pid: 3
+  sort: 0
+  enable: 1
+  show: 1  
+  url: onepage/lists
+-
+  names: 图片广告
+  id: 47
+  pid: 8
+  sort: 1
+  enable: 1
+  show: 1  
+  url: advpic/lists
+-
+  names: 文字广告
+  id: 48
+  pid: 8
+  sort: 1
+  enable: 1
+  show: 1  
+  url: advtext/lists
+-
+  names: 代码广告
+  id: 49
+  pid: 8
+  sort: 1
+  enable: 1
+  show: 0  
+  url: advcode/show_lists
+-
+  names: 管理员列表
+  id: 50
+  pid: 9
+  sort: 0
+  enable: 1
+  show: 1  
+  url: adminuser/lists
+-
+  names: 添加管理员
+  id: 51
+  pid: 9
+  sort: 0
+  enable: 1
+  show: 1  
+  url: adminuser/add
+-
+  names: 管理员角色
+  id: 52
+  pid: 9
+  sort: 0
+  enable: 1
+  show: 1  
+  url: role/lists
+-
+  names: 添加管理员角色
+  id: 53
+  pid: 9
+  sort: 0
+  enable: 1
+  show: 1  
+  url: role/add
+-
+  names: 数据库备份
+  id: 54
+  pid: 10
+  sort: 0
+  enable: 1
+  show: 1  
+  url: bakup/index
+-
+  names: 数据库还原
+  id: 55
+  pid: 10
+  sort: 0
+  enable: 1
+  show: 1  
+  url: bakup/import_list
+-
+  names: 广告区域管理
+  id: 58
+  pid: 8
+  sort: 0
+  enable: 1
+  show: 1  
+  url: advpic/area_lists
+-
+  names: 公告管理
+  id: 60
+  pid: 3
+  sort: 0
+  enable: 1
+  show: 1  
+  url: notice/notice
+-
+  names: 数据清理
+  id: 61
+  pid: 10
+  sort: 0
+  enable: 1
+  show: 1  
+  url: datafile/lists

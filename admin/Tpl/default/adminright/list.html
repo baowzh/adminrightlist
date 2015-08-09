@@ -1,0 +1,60 @@
+<script type="text/javascript">
+	var root = "__ROOT__", index = "__Index__";
+</script>
+<link href="../Public/css/qingdan.css" type='text/css' rel='stylesheet' />
+<link href="../Public/css/style.css" type='text/css' rel='stylesheet' />
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery.treetable-ajax-persist.js"></script>
+<script type="text/javascript" src="../Public/js/setprojectinfo.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery.treetable-3.0.0.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/persist-min.js"></script>
+<script type="text/javascript"
+	src="../Public/jquery-treetable/jquery-ui.min.js"></script>
+<link href="../Public/jquery-treetable/css/jquery-ui.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="../Public/jquery-treetable/css/jquery.treetable.css"
+	media="all" rel="stylesheet" type="text/css" />
+<link href="../Public/jquery-treetable/css/jquery.treetable.theme.css"
+	media="all" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet"
+	href="__ROOT__/Public/Plugins/uploadify/uploadify.css" />
+<script type="text/javascript"
+	src="__ROOT__/Public/Plugins/uploadify/jquery.uploadify-3.1.min.js"></script>
+<script type="text/javascript"
+	src="__ROOT__/Public/Plugins/uploadify/jquery.jUpload.js"></script>
+<body>
+	<div class="table-list">
+		<table id="treetable" class="search_table" width="100%">
+			<thead>
+				<th>项目名称</th>
+				<th>实时主体</th>
+				<th>选择</th>
+			</thead>
+			<tbody id="tbody1">
+				<volist name="adminrights" id="vo">
+				<tr data-tt-id="{$vo.id}" data-tt-parent-id="{$vo.parentid}"
+					class="ulbc">
+					<td style="text-align: left;"><neq name="vo.haschild"
+							value="0"> <span class="folder ui-draggable">{$vo.projectname}</span>
+						</neq> <eq name="vo.haschild" value="0"> <span
+							class="file ui-draggable">{$vo.projectname}</span> </eq></td>
+					<td>{$vo.departname}</td>
+					<td><a
+						href="javascript:parent.setparentid('{$vo.id}','{$vo.projectname}');">选择</a></td>
+				</tr>
+				</volist>
+
+			</tbody>
+		</table>
+	</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+			$("#treetable").agikiTreeTable({persist: true, persistStoreName: "files"});
+	});
+
+</script>
+</html>

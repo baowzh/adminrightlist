@@ -1,0 +1,120 @@
+{__NOLAYOUT__}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>清水河县行政权力清单专题</title>
+<link rel="stylesheet" href="__ROOT__/Public/css/adminstyle.css" />
+<SCRIPT type=text/javascript src="__ROOT__/Public/js/jquery-1.8.3.js"></SCRIPT>
+</head>
+<body>
+	<div class="top_mn">
+		<div class="top_content">
+			<span class="logo">清水河县人民政府</span><span class="date">今天是：2015年7月25日
+				星期六</span> <a href="#">设为首页</a><a href="#">加入收藏</a><a href="index.html"
+				class="current">返回首页</a>
+		</div>
+	</div>
+	<div style="clear: both"></div>
+	<div class="main_box">
+		<div class="box_out">
+			<div class="box_out_top"></div>
+			<div class="box_out_mid">
+				<table width="990" border="0" cellspacing="0" cellpadding="0"
+					align="center">
+					<tr>
+						<td height="34"
+							style="background: url(__ROOT__/Public/images/wz_bg.jpg) repeat-x"><table
+								width="980" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="38" height="34" align="center"><img
+										src="__ROOT__/Public/images/wz_icon.jpg" /></td>
+									<td width="942" align="left" class="p12hui02">您当前的位置：<a
+										href="{:U('index/index')}" class="p12honglk">行政权利清单首页</a> >
+										<a href="{:U('index/index',array('departid'=>$adminright['id']))}" class="p12honglk"> {$adminright.departname} </a> > <span class="p12lansecu">{$adminright.projectname} </span></td>
+								</tr>
+							</table></td>
+					</tr>
+					<tr>
+						<td align="center" class="hong_24"
+							style="padding-top: 30px; padding-bottom: 20px;">行政权力基本信息表</td>
+					</tr>
+					<tr>
+						<td>
+
+							<TABLE class=table-XZQL border=0 cellSpacing=1 cellPadding=0
+								width="890" align="center">
+								<TBODY>
+									<TR>
+										<TD class=t>项目名称</TD>
+										<TD colspan="3" class=c>{$adminright.projectname}</TD>
+									</TR>
+
+									<TR>
+										<TD class=t>设定依据</TD>
+										<TD colspan="3" class=c>{$adminright.evidence}</TD>
+									</TR>
+
+									<TR>
+										<TD class=t>实施主体</TD>
+										<TD colspan="3" class=c>{$adminright.departname}</TD>
+									</TR>
+									<TR>
+										<TD width="18%" rowspan="2" class=t>收费标准及依据</TD>
+										<TD class=t>标准</TD>
+										<TD colspan="2" class=c>{$adminright.standard}</TD>
+									</TR>
+									<TR>
+										<TD width="18%" class=t>依据</TD>
+										<TD colspan="2" class=c>{$adminright.taxevidence}</TD>
+									</TR>
+									<TR>
+										<TD class=t>审批要件</TD>
+										<TD colspan="3" class=c>{$adminright.checkelement}</TD>
+									</TR>
+									<TR>
+										<TD class=t>办理时限</TD>
+										<TD colspan="3" class=c>{$adminright.timelimit}</TD>
+									</TR>
+									<TR>
+										<TD class=t>承办机构</TD>
+										<TD class=c>{$adminright.holddepart}</TD>
+										<TD width="32%" class=t>联系方式</TD>
+										<TD width="32%" class=c>{$adminright.tel}</TD>
+									</TR>
+
+									<TR style="border: 3px solid #ff0000;">
+										<TD class=t style="border-top: 2px solid #f6afad;">备注</TD>
+										<TD colspan="3" class=c style="border-top: 2px solid #f6afad;">&nbsp;
+											{$adminright.comm}</TD>
+									</TR>
+								</TBODY>
+							</TABLE>
+
+							<table width="890" border="0" cellspacing="0" cellpadding="0"
+								align="center">
+								<tr>
+									<td height="50" class="p14ju"
+										style="border-top: 3px solid #ff9c00; border-left: 2px solid #ff9c00; border-right: 2px solid #ff9c00; background: #fffbf0; padding-left: 10px;">
+										<img src="__ROOT__/Public/images/icon-rchag.png" width="19"
+										height="20" /> 流程图
+									</td>
+								</tr>
+								<tr>
+									<td
+										style="border: 2px solid #ff9c00; border-top: none; padding-top: 25px; padding-bottom: 35px;"
+										align="center"><img
+										src="__ROOT__{$adminright.processimg}" /></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+			<div class="box_out_btm"></div>
+		</div>
+	</div>
+</body>
+</html>
+
