@@ -4,7 +4,7 @@
 		<a href="{:U('add')}">添加类别</a>
 	</ul>
 </div>
-<form action="" method="get">
+<form action="" method="post">
 	<table class="search_table" width="100%">
 		<tr>
 			<td class="search">类别名称: <input id="names" type="text"
@@ -35,8 +35,8 @@
 					<td style="text-align: left;">{$vo.code}</td>
 					<td style="text-align: left;">{$vo.comm}</td>
 					<td><a
-						href="__URL__/edit/id/{$vo.id}">编辑</a>&nbsp;|&nbsp; <a
-						href="__URL__/del/id/{$vo.id}"
+						href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>&nbsp;|&nbsp; <a
+						href="{:U('del',array('id'=>$vo['id']))}"
 						onclick="return atr_confirm(this.href)">删除</a></td>
 				</tr>
 				</volist>

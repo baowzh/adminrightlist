@@ -22,11 +22,15 @@
 							<volist name="departs" id="vo">
 							<tr
 								style="background: url(__ROOT__/Public/images/line_bg.jpg) bottom repeat-x;">
-								<td style="text-align:left;"><a
-									href="{:U('index/index',array('departid'=>$vo['1']['id']))}"
+								<td style="text-align:left;">
+<!-- 								{:U('index',array('classid'=>$vo['2']['id']))} -->
+<!-- ?m=index&a=index&departid={$vo['1']['id']} -->
+								<a
+									href="{:U('index',array('departid'=>$vo['1']['id']))}"
 									class="p14huiwei">{$vo[1].names}</a></td>
-								<td style="text-align:left;"><a
-									href="{:U('index/index',array('departid'=>$vo['2']['id']))}"
+								<td style="text-align:left;">
+								<a
+									href="{:U('index',array('departid'=>$vo['2']['id']))}"
 									class="p14huiwei">{$vo[2].names}</a></td>
 							</tr>
 							</volist>
@@ -37,11 +41,14 @@
 							align="center" class="table1">
 							<volist name="classes" id="vo">
 							<tr style="background: url(images/line_bg.jpg) bottom repeat-x;">
-								<td style="text-align:left;"><a
-									href="{:U('index/index',array('classid'=>$vo['1']['id']))}"
+								<td style="text-align:left;">
+<!-- 								?m=index&a=index&classid={$vo['1']['id']} -->
+								<a
+									href="{:U('index',array('classid'=>$vo['1']['id']))}"
 									class="p14huiwei" id="class{$vo[1].id}">{$vo[1].names}</a></td>
-								<td style="text-align:left;"><a
-									href="{:U('index/index',array('classid'=>$vo['2']['id']))}"
+								<td style="text-align:left;">
+								<a
+									href="{:U('index',array('classid'=>$vo['2']['id']))}"
 									class="p14huiwei" id="class{$vo[2].id}">{$vo[2].names}</a></td>
 							</tr>
 							</volist>
@@ -51,7 +58,7 @@
 				</DIV>
 			</DIV>
 			<div class="content_rt" style="position: relative;">
-				<form action="{:U('index/index')}" method="post" id="postform">
+				<form action="?m=index&a=index" method="post" id="postform">
 					<div class="list_tit" style="height: 50px;">
 						<div
 							style="height: 40px; margin-top: 12px; width: 260px; float: left; position: relative;"
@@ -86,8 +93,10 @@
 					<input type="hidden" name="departid" id="departid"/>
 				</form>
 				<div class="xzflmn_box">
-					<volist name="classes1" id="vo" key="index"> <a
-						href="{:U('index/index',array('classid'=>$vo['id']))}"
+					<volist name="classes1" id="vo" key="index"> 
+<!-- 					?m=index&a=index&classid={$vo['id']} -->
+					<a
+						href="{:U('index',array('classid'=>$vo['id']))}"
 						class="xzfl_mn allclass" id="classi{$vo.id}">{$vo.names}</a> </volist>
 				</div>
 
@@ -99,11 +108,17 @@
 								<table width="670" border="0" cellspacing="0" cellpadding="0">
 									<tr class="p14hui">
 										<td width="89" class="p14hong">[{$vo.info.departname}]</td>
-										<td width="456"><neq name="vo.haschild" value="0">
-											{$vo.info.projectname} </neq> <eq name="vo.haschild" value="0">
-											<a href="{:U('index/detail',array('id'=>$vo['id']))}"
+										<td width="456">
+										<neq name="vo.info.haschild" value="0">
+											{$vo.info.projectname} 
+										</neq> 
+<!-- 										{:U('index',array('classid'=>$vo['id']))} -->
+<!-- 										?m=index&a=detail&id={$vo.info.id} -->
+										<eq name="vo.info.haschild" value="0">
+											<a href="{:U('detail',array('id'=>$vo['info']['id']))}"
 												target="_blank" class="p14hui"> {$vo.info.projectname} </a>
-											</eq></td>
+										</eq>
+										</td>
 										<eq name="vo.info.haschild" value="0">
 										<td width="71" class="p14hong">[无子项]</td>
 										</eq>
@@ -113,9 +128,13 @@
 									</tr>
 								</table>
 							</span>
-							<neq name="vo.info.haschild" value="0"> <volist
+							<neq name="vo.info.haschild" value="0"> 
+						<volist
 								name="vo.childs" id="vo1">
-							<li><a href="{:U('index/detail',array('id'=>$vo1['id']))}"
+							<li>
+<!-- 							{:U('detail',array('id'=>$vo.info.id))} -->
+<!-- ?m=index&a=detail&id={$vo1['id']} -->
+							<a href="{:U('detail',array('id'=>$vo1['id']))}"
 								class="p14hui">
 									<ul>
 										<span>

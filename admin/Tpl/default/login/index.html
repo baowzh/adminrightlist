@@ -19,14 +19,16 @@
     <script type="text/javascript" src="__ROOT__/Public/Plugins/jquery.validate.check.js"></script>
 <script type="text/javascript">
             if (self != top) {
-                window.top.location.href = '{:U("login/index")}';
+                //window.top.location.href = '{:U("login/index")}';
+            	window.top.location.href = '?m=login&a=index';
             }
 
             function getRandom(n) {
                 return Math.floor(Math.random() * n + 1)
             }
             function getsource(obj) {
-                var url = "{:U('Common/verify')}/r/";
+               // var url = "{:U('Common/verify')}/r/";
+                var url = "?m=Common&a=verify&k=r";
                 obj.src = url + Math.random()
             }
     </script>
@@ -38,7 +40,7 @@
 
 </script>
 
-<form action="__URL__/" method="post">
+<form action="?m=login&a=index" method="post">
 <table class="login" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
 <!--     <td width="45%" align="right"><img src="../Public/images/admin_logo.gif"/></td> -->
@@ -69,7 +71,8 @@
     <label>
     <input maxLength="10" size="4" name="verify" id="verify"/>
     </label>
-    &nbsp;<img src="{:U('Common/verify')}" align="absmiddle" onclick="getsource(this);" style="cursor:pointer;"/>
+<!--     {:U('Common/verify')} -->
+    &nbsp;<img src="?m=Common&a=verify" align="absmiddle" onclick="getsource(this);" style="cursor:pointer;"/>
 
 </td>
   </tr>

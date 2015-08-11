@@ -122,23 +122,50 @@ class adminrightAction extends CommonAction {
 		$Depart = M ( 'Depart' );
 		$Classi = M ( 'Class' );
 		$Adminright = M ( "Adminright" );
-		if (! empty ( $_GET ['projectname'] )) {
-			$where ["projectname"] = array (
-					"like",
-					"%{$_GET['projectname']}%" 
-			);
-			
-			$this->assign ( "projectname", $_GET ['projectname'] );
-		} else {
-			// $where = '1=1';
+		if($_GET){
+			if (! empty ( $_GET ['projectname'] )) {
+				$where ["projectname"] = array (
+						"like",
+						"%{$_GET['projectname']}%"
+				);
+					
+				$this->assign ( "projectname", $_GET ['projectname'] );
+			} else {
+				// $where = '1=1';
+			}
+			if (! empty ( $_GET ['departid'] )) {
+				$where ["departid"] = array (
+						"eq",
+						"{$_GET['departid']}"
+				);
+			}
+		}else{
+			if (! empty ( $_POST ['projectname'] )) {
+				$where ["projectname"] = array (
+						"like",
+						"%{$_POST['projectname']}%"
+				);
+					
+				$this->assign ( "projectname", $_POST ['projectname'] );
+			} else {
+				// $where = '1=1';
+			}
+			if (! empty ( $_POST ['departid'] )) {
+				$where ["departid"] = array (
+						"eq",
+						"{$_POST['departid']}"
+				);
+			}
 		}
+		
+		
 		$where ['parentid'] = array (
 				"exp",
 				'IS NULL' 
 		);
 		$count = $Adminright->where ( $where )->count ();
 		$page = $this->pagebar ( $count );
-		$list =$Adminright-> page ( $page )->where ( $where )->field ( $Adminright->getTableName () . ".*, (select count(1) from " . $Adminright->getTableName () . " a where a.parentid=" . $Adminright->getTableName () . ".id ) as haschild,(select names from " . $Depart->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".departid ) as departname,(select names from " . $Classi->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".classcode ) as classname  " )->order ( 'id asc' )->select ();
+		$list =$Adminright-> page ( $page )->where ( $where )->field ( $Adminright->getTableName () . ".*, (select count(1) from " . $Adminright->getTableName () . " a where a.parentid=" . $Adminright->getTableName () . ".id ) as haschild,(select names from " . $Depart->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".departid ) as departname,(select names from " . $Classi->getTableName () . " a where a.id=" . $Adminright->getTableName () . ".classcode ) as classname  " )->order ( 'parentid,id' )->select ();
 		$newList = array ();
 		foreach ( $list as $key => $value ) {
 			$Adminrighti = M ( "Adminright" );
@@ -148,8 +175,10 @@ class adminrightAction extends CommonAction {
 			}
 		}
 		$list = array_merge ( $list, $newList );
-		sort ( $list );
+	    sort ( $list   );
 		$this->assign ( 'list', $list );
+		$departs= $Depart->select();
+		$this->assign ( 'departs',$departs );
 		$this->display ();
 	}
 	private function getChild($parentid, $list) {
@@ -174,6 +203,26 @@ class adminrightAction extends CommonAction {
 		} else {
 			return $list;
 		}
+	}
+	function ARRAY_sort_by_field($arr_data, $field, $descending = false)
+	{
+		$arrSort = array();
+		foreach ( $arr_data as $key => $value ) {
+			$arrSort[$key] = $value[$field];
+		}
+	
+		if( $descending ) {
+			arsort($arrSort);
+		} else {
+			asort($arrSort);
+		}
+	
+		$resultArr = array();
+		foreach ($arrSort as $key => $value ) {
+			$resultArr[$key] = $arr_data[$key];
+		}
+	
+		return $resultArr;
 	}
 	public function getProjects() {
 		$departid = $_GET ['departid'];

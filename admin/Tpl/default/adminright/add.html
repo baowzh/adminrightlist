@@ -212,7 +212,7 @@
 			resizable : true,
 			modal : true,
 			open: function(ev, ui){  
-	             $('#myIframe').attr('src',"{:U('getProjects')}/departid/"+$('#departid').val()+"/classcode/"+$('#classcode').val() );  
+	             $('#myIframe').attr('src',"{:U('getProjects')}&departid="+$('#departid').val()+"&classcode="+$('#classcode').val() );  
 	          } 
 		});
 	}

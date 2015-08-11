@@ -87,7 +87,7 @@ class CommonAction extends Action {
         define("PAGESIZE", $pagesize);
         $sizecount = array(5, 10, 12, 15, 20, 30, 50, 100); //可选记录条数列表
         //设置分页设置的url为 U('Common/setPageSize')
-        $pagestr = " 每页显示<select onchange=\"location.href='" . U('Common/setPageSize') . "/pagesize/'+this.value\">";
+        $pagestr = " 每页显示<select onchange=\"location.href='" . U('Common/setPageSize') . "&pagesize='+this.value\">";
         foreach ($sizecount as $v) {
             if ($v == $pagesize) {
                 $pagestr.="<option value=\"$v\" selected=\"selected\">$v</option>";

@@ -31,13 +31,23 @@
 		<a href="{:U('add')}">添加权利清单</a>
 	</ul>
 </div>
-<form action="" method="get">
+<form action="{:U('show_list')}" method="post">
 	<table class="search_table" width="100%">
 		<tr>
 			<td class="search">清单名称: <input id="projectname" type="text"
 				class="input-text" name="projectname" value="{$projectname}" />
-				&nbsp; <input type="submit" name="submit" value="查询" class="button" />
+			部门:<select id="departid" type="text"
+				class="input-select" name="departid" >
+				<option value="">请选择</option>
+				<volist name="departs" id="vo">
+				 <option value="{$vo.id}">{$vo.names}</option>
+				</volist>
+				
+			</select>
+			&nbsp; <input type="submit" name="submit" value="查询" class="button" />
+				
 			</td>
+			
 		</tr>
 	</table>
 </form>
@@ -80,9 +90,14 @@
 					<td style="text-align: left;">{$vo.timelimit}</td>
 					<td style="text-align: left;">{$vo.holddepart}</td>
 					<td style="text-align: left;">{$vo.tel}</td>
-					<td><a
-						href="__URL__/edit/id/{$vo.id}">编辑</a>&nbsp;|&nbsp; <a
-						href="__URL__/del/id/{$vo.id}"
+					<td>
+<!-- 					{:U('edit',array('id'=>$vo['id']))} -->
+<!-- __URL__/edit/id/{$vo.id} -->
+					<a
+						href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>&nbsp;|&nbsp; 
+<!-- 						__URL__/del/id/{$vo.id} -->
+						<a
+						href="{:U('del',array('id'=>$vo['id']))}"
 						onclick="return atr_confirm(this.href)">删除</a></td>
 				</tr>
 				</volist>

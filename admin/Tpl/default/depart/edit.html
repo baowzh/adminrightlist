@@ -7,7 +7,7 @@
 		<a class="on" href="{:U('edit')}?id={$id}">编辑部门</a>
 	</ul>
 </div>
-<form action="{:U('edit')}/id/{$id}" name="form1"
+<form action="{:U('edit',array('id'=>$id))}" name="form1"
 	 method="post"
 	onsubmit="return formcheck();">
 	 <input type="hidden"

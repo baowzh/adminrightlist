@@ -4,7 +4,7 @@
                 h1 { height:30px;line-height:30px;font-size:14px;padding-left:15px;background:#EEE;border-bottom:1px solid #ddd;border-right:1px solid #ddd;overflow:hidden;zoom:1;margin-bottom:10px;}
                 h1 b {color:#3865B8;}
                 h1 span {color:#ccc;font-size:10px;margin-left:10px;}
-                #Profile{ width:48%; height:191px; float:left;margin:5px 15px 0 0;}
+                #Profile{ width:98%; height:191px; float:left;margin:5px 15px 0 0;}
                 #system {width:48%;float:left;margin:5px 15px 0 0;}
                 .list ul{ border:1px #ddd solid;  overflow:hidden;border-bottom:none;}
                 .list ul li{ border-bottom:1px #ddd solid; height:26px;  overflow:hidden;zoom:1; line-height:26px; color:#777;padding-left:5px;}
@@ -37,13 +37,14 @@
             <div id="Profile" class="list">
                 <h1><b>个人信息</b><span>Profile&nbsp; Info</span></h1>
                 <ul>
-                    <li><span>会员名:</span>{$_SESSION.admin_login_names}</li>
-                    <li><span>所属会员组:</span>{$group_name}</li>
+                    <li><span>管理员名:</span>{$_SESSION.admin_login_names}</li>
+                    <li><span>管理员组:</span>{$group_name}</li>
                     <li><span>最后登陆时间:</span>{$_SESSION.last_login_time|date="Y-m-d H:i:s",###}</li>
                     <li><span>最后登陆IP:</span>{$_SESSION.last_login_ip}</li>
                     <li><span>登陆次数:</span>{$_SESSION.login_count}次</li>
                 </ul>
             </div>
+            <!--  
             <div id="sitestats" >
                 <h1><b>网站统计</b><span>Site&nbsp; Stats</span></h1>
                 <div>
@@ -74,5 +75,6 @@
                     </ul>
                 </div>
             </div>
+            -->
            
 <include file="./Tpl/Public/footer.html" />

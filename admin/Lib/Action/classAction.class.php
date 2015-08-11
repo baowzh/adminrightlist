@@ -13,15 +13,28 @@ class classAction extends CommonAction {
 	 */
 	public function lists() {
 		$Classi = M ( "Class" );
-		if (! empty ( $_GET ['names'] )) {
-			$where ["names"] = array (
-					"like",
-					"%{$_GET['names']}%" 
-			);
-			$this->assign ( "names", $_GET ['names'] );
-		} else {
-			$where = '1=1';
+		if($_GET){
+			if (! empty ( $_GET ['names'] )) {
+				$where ["names"] = array (
+						"like",
+						"%{$_GET['names']}%"
+				);
+				$this->assign ( "names", $_GET ['names'] );
+			} else {
+				$where = '1=1';
+			}
+		}else{
+			if (! empty ( $_POST ['names'] )) {
+				$where ["names"] = array (
+						"like",
+						"%{$_POST['names']}%"
+				);
+				$this->assign ( "names", $_POST ['names'] );
+			} else {
+				$where = '1=1';
+			}
 		}
+		
 		$count = $Classi->where ( $where )->count ();
 		$page = $this->pagebar ( $count );
 		$list = $Classi->page ( $page )->where ( $where )->order ( 'id ' )->select ();

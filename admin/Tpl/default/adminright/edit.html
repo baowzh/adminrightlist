@@ -51,7 +51,7 @@
 <div id="nav" class="mainnav_title">
 	<ul>
 		<a href="{:U('show_list')}">权利清单列表</a> |
-		<a class="on" href="{:U('add')}">修改权利清单</a>
+		<a class="on" href="{:U('edit')}">修改权利清单</a>
 	</ul>
 </div>
 <form action="{:U('edit')}" enctype="multipart/form-data" method="post">
@@ -228,7 +228,7 @@ var seleparent=function(){
 		resizable : false,
 		modal : true,
 		open: function(ev, ui){  
-             $('#myIframe').attr('src',"{:U('getProjects')}/departid/"+$('#departid').val()+"/classcode/"+$('#classcode').val() );  
+             $('#myIframe').attr('src',"{:U('getProjects')}&departid="+$('#departid').val()+"&classcode="+$('#classcode').val() );  
           } 
 	});
 }

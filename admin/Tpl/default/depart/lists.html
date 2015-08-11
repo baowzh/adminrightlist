@@ -4,7 +4,7 @@
 		<a href="{:U('add')}">添加部门</a>
 	</ul>
 </div>
-<form action="" method="get">
+<form action="{:U('lists')}" method="post">
 	<table class="search_table" width="100%">
 		<tr>
 			<td class="search">部门名称: <input id="names" type="text"
@@ -14,7 +14,7 @@
 		</tr>
 	</table>
 </form>
-<form name="myform" id="myform" action="" method="post">
+<form name="myform" id="myform" action="{:U('lists')}" method="post">
 	<div class="table-list">
 		<table cellspacing="0" cellpadding="0" width="100%">
 			<thead>
@@ -34,9 +34,13 @@
 					<td style="text-align: left;">{$vo.names}</td>
 					<td style="text-align: left;">{$vo.code}</td>
 					<td style="text-align: left;">{$vo.comm}</td>
-					<td><a
-						href="__URL__/edit/id/{$vo.id}">编辑</a>&nbsp;|&nbsp; <a
-						href="__URL__/del/id/{$vo.id}"
+					<td>
+<!-- 					__URL__&a=edit&id={$vo.id} -->
+					<a
+						href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>&nbsp;|&nbsp;
+<!-- 						__URL__&a=del&id={$vo.id} -->
+						 <a
+						href="{:U('del',array('id'=>$vo['id']))}"
 						onclick="return atr_confirm(this.href)">删除</a></td>
 				</tr>
 				</volist>
